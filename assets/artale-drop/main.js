@@ -476,14 +476,14 @@ function refresh() {
 }
 
 Promise.all([
-  fetch('/assets/artale-drop/drop_data.json').then(res => res.json()),
-  fetch('/assets/artale-drop/mob.json').then(res => res.json()),
-  fetch('/assets/artale-drop/item.json').then(res => res.json()),
-  fetch('/assets/artale-drop/boss_time.json').then(res => res.json()),
-  fetch('/assets/artale-drop/map.json').then(res => res.json()),
-  fetch('/assets/artale-drop/map_exception.json').then(res => res.json()),
-  fetch('/assets/artale-drop/area.json').then(res => res.json()),
-  fetch('/assets/artale-drop/alias.json').then(res => res.json())
+  fetch('{{ site.baseurl }}assets/artale-drop/drop_data.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/mob.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/item.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/boss_time.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/map.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/map_exception.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/area.json').then(res => res.json()),
+  fetch('{{ site.baseurl }}assets/artale-drop/alias.json').then(res => res.json())
 ]).then(([drop, mob, itemMap, boss, map, mapException, areaData, alias]) => {
   spawnMap = {};
   area = areaData;
