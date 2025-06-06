@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 最新消息
-permalink: /news/
+title: 職業養成 - 劍士
+permalink: /warrior/
 ---
 <style>
   .text-truncate-3 {
@@ -41,7 +41,7 @@ permalink: /news/
   <div class="container box_1170">
     <div class="section-top-border">
       <div class="row col-12">
-        <h1 class="mb-4">最新消息</h1><br><br>
+        <h1 class="mb-4">職業養成 - 劍士</h1><br><br>
       </div>
       <div class="row">
         <!-- 左側文章列表 -->
@@ -92,7 +92,7 @@ let currentPage = 0;
 const perPage = 5;
 
 // 篩選條件（可修改）
-const categoryFilter = "news";
+const categoryFilter = "warrior";
 
 function renderPosts(posts) {
   const container = document.getElementById("post-container");
@@ -100,7 +100,7 @@ function renderPosts(posts) {
   posts.forEach(post => {
     const html = `
       <div class="col-12">
-        <a href="{{ site.baseurl }}/${post.url}" class="card-hover-link">
+        <a href="${post.url}" class="card-hover-link">
           <div class="card mb-3 shadow-sm border-0">
             <div class="row g-0">
               <div class="col-md-4">

@@ -1,0 +1,146 @@
+---
+layout: default
+title: 文章搜尋
+permalink: /search/
+---
+
+<style>
+/* 重複使用樣式 */
+.text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 4.5em;
+}
+.img-thumb {
+  height: 150px;
+  object-fit: cover;
+  width: 100%;
+}
+.card-hover-link {
+  text-decoration: none;
+  color: inherit;
+}
+.card-hover-link .card {
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+.card-hover-link:hover .card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+</style>
+
+<div class="whole-wrap">
+  <div class="container box_1170">
+    <div class="section-top-border">
+      <h1 class="mb-4">🔍 文章搜尋</h1>
+
+      <!-- 搜尋框 -->
+      <div class="input-group mb-4">
+        <input type="text" id="search-input" class="form-control" placeholder="輸入關鍵字搜尋文章" style="height:54px">
+        <button class="btn btn-outline-secondary" type="button" onclick="performSearch()">搜尋</button>
+      </div>
+
+      <!-- 搜尋結果 -->
+      <div id="search-results" class="row"></div>
+
+      <!-- 載入更多 -->
+      <div class="text-center mt-4">
+        <button id="load-more" class="btn btn-primary" style="display:none;">載入更多</button>
+        <p id="no-more" class="text-muted mt-3" style="display: none;">🚫 沒有更多符合的文章</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let allPosts = [];
+let matchedPosts = [];
+let currentPage = 0;
+const perPage = 5;
+
+function renderPosts(posts) {
+  const container = document.getElementById("search-results");
+
+  posts.forEach(post => {
+    const html = `
+      <div class="col-12">
+        <a href="${post.url}" class="card-hover-link">
+          <div class="card mb-3 shadow-sm border-0">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="${post.image}" alt="${post.title}" class="img-fluid img-thumb">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h6 class="mb-0">${post.title}</h6>
+                    <small class="text-muted">${post.date}</small>
+                  </div>
+                  <p class="card-text text-truncate-3">${post.excerpt}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>`;
+    container.insertAdjacentHTML("beforeend", html);
+  });
+}
+
+function performSearch() {
+  const keyword = document.getElementById("search-input").value.trim().toLowerCase();
+  document.getElementById("search-results").innerHTML = "";
+  document.getElementById("no-more").style.display = "none";
+  currentPage = 0;
+
+  if (!keyword) {
+    matchedPosts = [];
+    document.getElementById("load-more").style.display = "none";
+    return;
+  }
+
+  matchedPosts = allPosts.filter(post =>
+    post.title.toLowerCase().includes(keyword) ||
+    post.excerpt.toLowerCase().includes(keyword) ||
+    (post.tags && post.tags.join(",").toLowerCase().includes(keyword))
+  );
+
+  if (matchedPosts.length === 0) {
+    document.getElementById("no-more").style.display = "block";
+    document.getElementById("load-more").style.display = "none";
+    return;
+  }
+
+  loadNextPage();
+}
+
+function loadNextPage() {
+  const start = currentPage * perPage;
+  const end = start + perPage;
+  const next = matchedPosts.slice(start, end);
+  renderPosts(next);
+  currentPage++;
+
+  if (currentPage * perPage >= matchedPosts.length) {
+    document.getElementById("load-more").style.display = "none";
+    document.getElementById("no-more").style.display = "block";
+  } else {
+    document.getElementById("load-more").style.display = "inline-block";
+    document.getElementById("no-more").style.display = "none";
+  }
+}
+
+// fetch posts.json 資料
+fetch("{{ site.baseurl }}/assets/posts.json")
+  .then(res => res.json())
+  .then(data => {
+    allPosts = data;
+  });
+
+document.getElementById("load-more").addEventListener("click", loadNextPage);
+</script>
