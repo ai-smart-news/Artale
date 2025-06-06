@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>{% if page.title %}{{ page.title }} | News{% else %}News HTML-5 Template{% endif %}</title>
+        <title>{% if page.title %}{{ page.title }} | Artale 資訊站{% else %}Artale 懷舊楓之谷資訊站{% endif %}</title>
 
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -71,7 +71,7 @@
                             <!-- Logo -->
                             <div class="col-xl-3 col-lg-3 col-md-3">
                                 <div class="logo" >
-                                    <a href="index.html"><img src="{{ site.baseurl }}/assets/assets/img/logo/logo.png" alt=""></a>
+                                    <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/assets/img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-9 col-lg-9 col-md-9">
@@ -88,27 +88,26 @@
                             <div class="col-xl-10 col-lg-10 col-md-12 header-flex">
                                 <!-- sticky -->
                                     <div class="sticky-logo">
-                                        <a href="index.html"><img src="{{ site.baseurl }}/assets/assets/img/logo/logo.png" alt=""></a>
+                                        <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/assets/img/logo/logo.png" alt=""></a>
                                     </div>
                                 <!-- Main-menu -->
                                 <div class="main-menu d-none d-md-block">
                                     <nav>                  
                                         <ul id="navigation">    
-                                            <li><a href="index.html">首頁</a></li>
-                                            <li><a href="categori.html">最新消息</a></li>
-                                            <li><a href="about.html">練等秘笈</a></li>
-                                            <li><a href="latest_news.html">賺錢攻略</a></li>
-                                            <li><a href="contact.html">職業養成</a></li>
-                                            <li><a href="contact.html">掉寶圖鑑</a></li>
-                                            <li><a href="contact.html">商品市價</a></li>
-                                            <li><a href="contact.html"></a></li>
-
-                                            <li><a href="#">Pages</a>
+                                            <li><a href="{{ site.baseurl }}/">首頁</a></li>
+                                            <li><a href="{{ site.baseurl }}/news/">最新消息</a></li>
+                                            <li><a href="{{ site.baseurl }}/levelup">練等秘笈</a></li>
+                                            <li><a href="{{ site.baseurl }}/makemoney">賺錢攻略</a></li>
+                                            <!-- <li><a href="{{ site.baseurl }}/roles">職業養成</a></li> -->
+                                            <li><a href="{{ site.baseurl }}/drop">掉寶圖鑑</a></li>
+                                            <li><a href="{{ site.baseurl }}/marketprice">商品市價</a></li>
+                                            <li><a href="#">職業養成</a>
                                                 <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                    <li><a href="details.html">Categori Details</a></li>
+                                                    <li><a href="elements.html">劍士</a></li>
+                                                    <li><a href="blog.html">弓箭手</a></li>
+                                                    <li><a href="single-blog.html">法師</a></li>
+                                                    <li><a href="details.html">盜賊</a></li>
+                                                    <li><a href="details.html">海盜</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
@@ -121,7 +120,6 @@
                                     <div class="search-box">
                                         <form action="#">
                                             <input type="text" placeholder="Search">
-                                            
                                         </form>
                                     </div>
                                 </div>
@@ -153,7 +151,7 @@
                             <div class="single-footer-caption">
                                 <!-- logo -->
                                 <div class="footer-logo">
-                                    <a href="index.html"><img src="{{ site.baseurl }}/assets/assets/img/logo/logo2_footer.png" alt=""></a>
+                                    <a href="{{ site.baseurl }}/"><img src="{{ site.baseurl }}/assets/assets/img/logo/logo2_footer.png" alt="" style="width:50%"></a>
                                 </div>
                                 <div class="footer-tittle">
                                     <div class="footer-pera">
@@ -238,43 +236,43 @@
   <!-- JS here -->
   
     <!-- All JS Custom Plugins Link Here here -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/vendor/modernizr-3.5.0.min.js"></script>
     <!-- Jquery, Popper, Bootstrap -->
-    <script src="./{{ site.baseurl }}/assets/assets/js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/popper.min.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/bootstrap.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/assets/js/vendor/jquery-1.12.4.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/popper.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/bootstrap.min.js"></script>
       <!-- Jquery Mobile Menu -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.slicknav.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.slicknav.min.js"></script>
 
     <!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/owl.carousel.min.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/slick.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/owl.carousel.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/slick.min.js"></script>
         <!-- Date Picker -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/gijgo.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/gijgo.min.js"></script>
     <!-- One Page, Animated-HeadLin -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/wow.min.js"></script>
-    <script src="./{{ site.baseurl }}/assets/assets/js/animated.headline.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.magnific-popup.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/wow.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/assets/js/animated.headline.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.magnific-popup.js"></script>
 
         <!-- Breaking New Pluging -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.ticker.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/site.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.ticker.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/site.js"></script>
 
     <!-- Scrollup, nice-select, sticky -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.scrollUp.min.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.nice-select.min.js"></script>
-    <script src="./{{ site.baseurl }}/assets/assets/js/jquery.sticky.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.scrollUp.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.nice-select.min.js"></script>
+    <script src="{{ site.baseurl }}/assets/assets/js/jquery.sticky.js"></script>
         
         <!-- contact js -->
-        <script src="./{{ site.baseurl }}/assets/assets/js/contact.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.form.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.validate.min.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/mail-script.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/jquery.ajaxchimp.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/contact.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.form.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.validate.min.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/mail-script.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/jquery.ajaxchimp.min.js"></script>
         
     <!-- Jquery Plugins, main Jquery -->  
-        <script src="./{{ site.baseurl }}/assets/assets/js/plugins.js"></script>
-        <script src="./{{ site.baseurl }}/assets/assets/js/main.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/plugins.js"></script>
+        <script src="{{ site.baseurl }}/assets/assets/js/main.js"></script>
         
     </body>
 </html>

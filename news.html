@@ -1,0 +1,151 @@
+---
+layout: default
+title: 最新消息
+permalink: /news/
+---
+<style>
+  .text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 4.5em;
+}
+
+.img-thumb {
+  height: 150px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-hover-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-hover-link .card {
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.card-hover-link:hover .card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+</style>
+<!-- Start Align Area -->
+<div class="whole-wrap">
+  <div class="container box_1170">
+    <div class="section-top-border">
+      <div class="row">
+        <h1 class="mb-4">最新消息</h1>
+      </div>
+      <div class="row">
+        <!-- 左側文章列表 -->
+        <div class="col-lg-8">
+          <div id="post-container" class="row"></div>
+          <button id="load-more" class="btn btn-primary">載入更多</button>
+          <p id="no-more-posts" class="text-center text-muted mt-4 fade-in" style="display: none;">
+            文章已載入完畢，暫時沒有更多文章~
+          </p>
+        </div>
+
+        <!-- 右側側欄廣告區 -->
+        <div class="col-lg-4">
+          <div class="position-sticky" style="top: 20px;">
+
+            <!-- Google 廣告開始 -->
+            <div class="mb-4">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5336208084094672"
+                crossorigin="anonymous"></script>
+              <ins class="adsbygoogle"
+                style="display:inline-block;width:240px;height:728px"
+                data-ad-client="ca-pub-5336208084094672"
+                data-ad-slot="3219557643"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+            <!-- Google 廣告結束 -->
+        
+            <!-- 額外推薦或電子報 -->
+            <div class="p-3 bg-light rounded shadow-sm">
+              <h6>加入我們</h6>
+              <p class="mb-0">訂閱電子報獲得最新消息</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- JS 動態載入文章 -->
+<script>
+let allPosts = [];
+let filteredPosts = [];
+let currentPage = 0;
+const perPage = 5;
+
+// 篩選條件（可修改）
+const categoryFilter = "news";
+
+function renderPosts(posts) {
+  const container = document.getElementById("post-container");
+
+  posts.forEach(post => {
+    const html = `
+      <div class="col-12">
+        <a href="${post.url}" class="card-hover-link">
+          <div class="card mb-3 shadow-sm border-0">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="${post.image}" alt="${post.title}" class="img-fluid img-thumb">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center mb-1">
+                    <h6 class="mb-0">${post.title}</h6>
+                    <small class="text-muted">${post.date}</small>
+                  </div>
+                  <p class="card-text text-truncate-3">${post.excerpt}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>`;
+    container.insertAdjacentHTML("beforeend", html);
+  });
+}
+
+function loadNextPage() {
+  const start = currentPage * perPage;
+  const end = start + perPage;
+  const nextPosts = filteredPosts.slice(start, end);
+  renderPosts(nextPosts);
+  currentPage++;
+
+  if (currentPage * perPage >= filteredPosts.length) {
+    // 沒有更多文章
+    document.getElementById("load-more").style.display = "none";
+    document.getElementById("no-more-posts").style.display = "block";
+  }
+}
+
+fetch("{{ site.baseurl }}/assets/posts.json")
+  .then(res => res.json())
+  .then(data => {
+    allPosts = data;
+    filteredPosts = allPosts.filter(post =>
+      post.categories.includes(categoryFilter)
+    );
+    loadNextPage();
+  });
+
+document.getElementById("load-more").addEventListener("click", loadNextPage);
+</script>

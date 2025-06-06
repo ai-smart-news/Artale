@@ -1,0 +1,53 @@
+<style>
+  .text-truncate-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.5em;
+  max-height: 4.5em;
+}
+
+.img-thumb {
+  height: 150px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.card-hover-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-hover-link .card {
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.card-hover-link:hover .card {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+</style>
+<a href="{{ post.url }}" class="card-hover-link">
+  <div class="card mb-3 shadow-sm border-0">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="{{ site.baseurl }}/{{ post.image }}" alt="{{ post.title }}" class="img-fluid img-thumb">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center mb-1">
+            <h6 class="mb-0">{{ post.title }}</h6>
+            <small class="text-muted">{{ post.date | date: "%Y-%m-%d" }}</small>
+          </div>
+          <p class="card-text text-truncate-3">
+            {{ post.excerpt | strip_html | strip_newlines }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>
