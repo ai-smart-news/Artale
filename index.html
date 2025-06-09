@@ -133,18 +133,18 @@ title: 首頁
                     <!-- Riht content -->
                     <div class="col-lg-4">
 
-                      {% for i in (4..8) %}{% assign post = site.posts | slice: i, 1 | first %}{% if post %}
-                        <a href="{{ site.baseurl }}{{ post.url }}"><div class="trand-right-single d-flex">
-                            <div class="trand-right-img">
-                                <img src="{{ site.baseurl }}{{ post.image }}" alt="" style="width:100px">
-                            </div>
-                            <div class="trand-right-cap">
-                                <span class="color4">{% for cate in post.categories %}| {{ cate }} {% endfor %} |</span>
-                                <h4>{{ post.title }}</h4>
-                            </div>
-                        </div></a>
-                        {% endif %}
-                      {% endfor %}
+                      <!-- Google 廣告開始 -->
+            <div class="mb-4">
+              <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5336208084094672"
+                crossorigin="anonymous"></script>
+              <ins class="adsbygoogle"
+                style="display:inline-block;width:240px;height:728px"
+                data-ad-client="ca-pub-5336208084094672"
+                data-ad-slot="3219557643"></ins>
+              <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
                         
                     </div>
                 </div>
