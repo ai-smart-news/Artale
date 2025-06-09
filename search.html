@@ -5,7 +5,7 @@ permalink: /search/
 ---
 
 <style>
-/* 重複使用樣式 */
+/* 卡片樣式 */
 .text-truncate-3 {
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -32,10 +32,37 @@ permalink: /search/
   transform: translateY(-2px);
   cursor: pointer;
 }
+
+/* 廣告欄樣式 */
+.ad-side {
+  width: 160px;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .ad-side {
+    display: none;
+  }
+}
 </style>
 
-<div class="whole-wrap">
-  <div class="container box_1170">
+<!-- 載入 Google 廣告 -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5336208084094672"
+  crossorigin="anonymous"></script>
+
+<!-- 外層 d-flex 包住左右廣告 + 主內容 -->
+<div class="d-flex justify-content-center">
+
+  <!-- 左廣告 -->
+  <div class="ad-side">
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:160px;height:600px"
+      data-ad-client="ca-pub-5336208084094672"
+      data-ad-slot="3219557643"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
+  <!-- 主內容 container -->
+  <div class="container box_1170 my-4">
     <div class="section-top-border">
       <h1 class="mb-4">🔍 文章搜尋</h1>
 
@@ -55,8 +82,19 @@ permalink: /search/
       </div>
     </div>
   </div>
+
+  <!-- 右廣告 -->
+  <div class="ad-side">
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:160px;height:600px"
+      data-ad-client="ca-pub-5336208084094672"
+      data-ad-slot="3219557643"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
 </div>
 
+<!-- JS 搜尋邏輯 -->
 <script>
 let allPosts = [];
 let matchedPosts = [];
@@ -135,7 +173,6 @@ function loadNextPage() {
   }
 }
 
-// fetch posts.json 資料
 fetch("{{ site.baseurl }}/assets/posts.json")
   .then(res => res.json())
   .then(data => {
