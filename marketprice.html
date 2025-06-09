@@ -4,69 +4,57 @@ title: 道具市價
 permalink: /marketprice/
 ---
 
+<!-- 廣告樣式 -->
 <style>
-/* 左右廣告固定在視窗兩側 */
-.ads-left, .ads-right {
-  position: fixed;
-  top: 150px;
-  z-index: 1000;
+.ad-side {
+  width: 160px;
+  text-align: center;
 }
-
-.ads-left {
-  left: 10px;
-}
-
-.ads-right {
-  right: 10px;
-}
-
-/* 小螢幕隱藏 */
 @media (max-width: 991px) {
-  .ads-left, .ads-right {
-    display: none !important;
+  .ad-side {
+    display: none;
   }
 }
 </style>
 
-<!-- Google AdSense 廣告 script -->
+<!-- Google AdSense 載入 -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5336208084094672"
   crossorigin="anonymous"></script>
 
+<!-- 外層用 flex 排版（廣告 + container + 廣告） -->
+<div class="d-flex justify-content-center">
 
-<!-- 左側廣告 -->
-<div class="ads-left d-none d-lg-block">
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5336208084094672"
-     data-ad-slot="2086439373"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-</div>
+  <!-- 左廣告 -->
+  <div class="ad-side">
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:160px;height:600px"
+      data-ad-client="ca-pub-5336208084094672"
+      data-ad-slot="3219557643"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
 
-<!-- 右側廣告 -->
-<div class="ads-right d-none d-lg-block">
-<ins class="adsbygoogle"
-     style="display:inline-block;width:160px;height:600px"
-     data-ad-client="ca-pub-5336208084094672"
-     data-ad-slot="8300493930"></ins>
-</div>
-
-<script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
-  (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-
-<!-- 主內容 -->
-<div class="container my-4">
-  <div class="row">
-    <div class="col-12" style="text-align: center;">
-      <p style="color: gray;font-size: 10px; margin-bottom: 0px;">(以下市價查找工具使用自 https://artale-market.org/)</p>
-      <iframe 
-        src="https://artale-market.org/price-trends?date=latest" 
-        style="width: 100%; height: 100vh; border: none; transform: scale(0.9);" 
-        loading="lazy"
-        title="掉落圖鑑 iframe"
-      ></iframe>
+  <!-- 主要內容 container -->
+  <div class="container my-4">
+    <div class="row">
+      <div class="col-12 text-center">
+        <p style="color: gray;font-size: 10px; margin-bottom: 0px;">(以下市價查找工具使用自 https://artale-market.org/)</p>
+        <iframe 
+          src="https://artale-market.org/price-trends?date=latest" 
+          style="width: 100%; height: 100vh; border: none; transform: scale(0.9);" 
+          loading="lazy"
+          title="掉落圖鑑 iframe"
+        ></iframe>
+      </div>
     </div>
   </div>
+
+  <!-- 右廣告 -->
+  <div class="ad-side">
+    <ins class="adsbygoogle"
+      style="display:inline-block;width:160px;height:600px"
+      data-ad-client="ca-pub-5336208084094672"
+      data-ad-slot="3219557643"></ins>
+    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  </div>
+
 </div>
