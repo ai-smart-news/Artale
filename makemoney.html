@@ -100,7 +100,7 @@ function renderPosts(posts) {
   posts.forEach(post => {
     const html = `
       <div class="col-12">
-        <a href="${post.url}" class="card-hover-link">
+        <a href="{{ site.baseurl }}/${post.url}" class="card-hover-link">
           <div class="card mb-3 shadow-sm border-0">
             <div class="row g-0">
               <div class="col-md-4">
