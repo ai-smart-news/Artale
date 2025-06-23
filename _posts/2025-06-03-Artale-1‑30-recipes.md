@@ -3,7 +3,7 @@ layout: post
 title: "Artale 1‑30 級衝等與資源管理全攻略"
 date: 2025-06-03
 categories: [練等秘笈]
-image: https://doqvf81n9htmm.cloudfront.net/data/catherinechen_399/messageImage_1747236426526_0.jpg
+image: /assets/assets/img/post/artale_1_30.png
 featured: true
 ---
 # Artale 1‑30 級衝等與資源管理全攻略
